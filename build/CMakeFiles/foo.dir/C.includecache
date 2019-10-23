@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
+../include/espl_lib.h
+
 /home/wei/Documents/git-tutorial/src/main.c
 stdio.h
+-
+espl_lib.h
+/home/wei/Documents/git-tutorial/src/espl_lib.h
+string.h
 -
 
