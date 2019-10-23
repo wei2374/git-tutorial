@@ -1,3 +1,7 @@
+README.md
 build/
+<<<<<<< HEAD
 test
-bin/foo
+=======
+bin/
+>>>>>>> code
