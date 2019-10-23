@@ -68,10 +68,10 @@ CMAKE_BINARY_DIR = /home/wei/Documents/git-tutorial/build
 # Target rules for target CMakeFiles/foo.dir
 
 # All Build rule for target.
-CMakeFiles/foo.dir/all:
+CMakeFiles/foo.dir/all: CMakeFiles/ESPL_LIB.dir/all
 	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/depend
 	$(MAKE) -f CMakeFiles/foo.dir/build.make CMakeFiles/foo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wei/Documents/git-tutorial/build/CMakeFiles --progress-num=1,2 "Built target foo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wei/Documents/git-tutorial/build/CMakeFiles --progress-num=3,4 "Built target foo"
 .PHONY : CMakeFiles/foo.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/foo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/foo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wei/Documents/git-tutorial/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wei/Documents/git-tutorial/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/foo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wei/Documents/git-tutorial/build/CMakeFiles 0
 .PHONY : CMakeFiles/foo.dir/rule
@@ -98,6 +98,43 @@ CMakeFiles/foo.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/foo.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ESPL_LIB.dir
+
+# All Build rule for target.
+CMakeFiles/ESPL_LIB.dir/all:
+	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/depend
+	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wei/Documents/git-tutorial/build/CMakeFiles --progress-num=1,2 "Built target ESPL_LIB"
+.PHONY : CMakeFiles/ESPL_LIB.dir/all
+
+# Include target in all.
+all: CMakeFiles/ESPL_LIB.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ESPL_LIB.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wei/Documents/git-tutorial/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ESPL_LIB.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wei/Documents/git-tutorial/build/CMakeFiles 0
+.PHONY : CMakeFiles/ESPL_LIB.dir/rule
+
+# Convenience name for target.
+ESPL_LIB: CMakeFiles/ESPL_LIB.dir/rule
+
+.PHONY : ESPL_LIB
+
+# clean rule for target.
+CMakeFiles/ESPL_LIB.dir/clean:
+	$(MAKE) -f CMakeFiles/ESPL_LIB.dir/build.make CMakeFiles/ESPL_LIB.dir/clean
+.PHONY : CMakeFiles/ESPL_LIB.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/ESPL_LIB.dir/clean
 
 .PHONY : clean
 

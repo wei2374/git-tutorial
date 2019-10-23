@@ -1,25 +1,33 @@
 #include<stdio.h>
 #include "espl_lib.h"
-#include<string.h>
-void main()
+
+#include<ctype.h>
+int main()
 {
-	unsigned int i;
+	int i;
 	char* s;
 	printf("please give me a number: \n");
-	scanf("%d",i);
+	if(!scanf("%u",&i))
+		{printf("this is not a number, try again later\n");
+			return 0;}
+
 	s = num_to_words(i);
 	printf("output string is %s\n",s);
-	printf("another try?\nexit with input char 'q' \n");
-	scanf("%d",i);
-	while(i!='q')
+	printf("another try?\nexit with any char\n");
+	
+		
+	while(!scanf("%u",&i))
 	{
 		s = num_to_words(i);
 		printf("output string is %s\n",s);
-		printf("another try?\nexit with input char 'q' \n");
-		scanf("%d",i);
-
+		printf("another try?\nexit with any char \n");
+		if(!scanf("%u",&i))
+			{printf("this is not a number, try again later\n");
+				break;}
+	
 	}	
-	printf("game over");
+	printf("game over\n");
+	return 0;
 	
 	
 }

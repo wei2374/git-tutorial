@@ -79,6 +79,7 @@ foo_EXTERNAL_OBJECTS =
 
 ../bin/foo: CMakeFiles/foo.dir/src/main.c.o
 ../bin/foo: CMakeFiles/foo.dir/build.make
+../bin/foo: libESPL_LIB.a
 ../bin/foo: CMakeFiles/foo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wei/Documents/git-tutorial/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../bin/foo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/foo.dir/link.txt --verbose=$(VERBOSE)

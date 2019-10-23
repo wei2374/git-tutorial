@@ -6,5 +6,5 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/wei/Documents/git-tutorial/include 
+C_INCLUDES = -I/home/wei/Documents/git-tutorial/include -I/home/wei/Documents/git-tutorial/lib 
 
