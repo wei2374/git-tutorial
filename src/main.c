@@ -207,7 +207,7 @@ int main(int argc, char argv) {
   if (error != 0)
     err_abort(error, "Unlock mutex");
 
-  printf("Finshed newC\n");
+  printf("Finshed oldC\n");
 
   return -1;
 }
