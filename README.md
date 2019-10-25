@@ -18,6 +18,7 @@ Unmerged paths:
 Inside each conflict file Git places markers that indicate the area of conflict. Let's take the simple example where two changes affected the same line of code in a file. This means that Git needs you to decide which change to keep. You will manually need to edit the code to integrate both solutions into your project. Choosing how to fix your code will be up to your discretion.
 
 Now in this example I have branched my original code, then on the new branch **and** on my current branch created commits that modify the same line of code. On the current branch I added "Result:" to a `printf` statement while on the branch I added "Output:".
+<<<<<<< HEAD
 
 ``` bash
 Original code (shared commit) ------ + "Result:"
@@ -60,6 +61,48 @@ Once you have resolved the merge conflict you can then add the resolved file and
 Now that you has seen the basic ideas of how merging works, lets see if you can handle some more complex merge problem yourself. You will find a branch called "unknown_features" which has diverged from this current branch at the previous commit. Your job now is to merge this branch into this current branch and resolve the conflicts presented. The project is a self-contained CMake project inside the `merge_exercise` folder and you will need to apply you C knowledge and CMake knowledge to merge the files correctly to get the project building properly. Please note that there are other tricks and errors hidden in the code. The code should not complile with warnings as warnings should almost always be treated as errors. Warnings will be cause for deducted marks throughout this course. 
 
 The program should be a POSIX thread based state machine that counts to a number specified in the programs options. See the `--help` of the compiled binary to see how to use the program. Once your binary performs this then you have the project merged and building correctly. Merge the project into `merging` and finally into `master`, if both projects are stable and working as expected. Finally create another tag with the annotation "Exercise 1.2 Submission".
+=======
+
+``` bash
+Original code (shared commit) ------ + "Result:"
+                              |----- + "Output:"
+```
+
+This has caused a merge conflict as the commit which they both share now has two different diffs when compared with the HEAD of both branches.
+
+Looking into the file `src/main.c`, as shown by `git status`, we would see the following around the line of interest.
+
+``` C
+<<<<<<< HEAD                                                                     
+        printf("Result: %s", tmp);                                               
+=======                                                                          
+        printf("Output: %s", tmp);                                               
+>>>>>>> bar      
+```
+
+This tells use that on our current branch (our current HEAD) the line containing "Result", where as on the branch we wish to merge into our current branch (bar) the line contains "Output". Git does not know which one we wish to use and as such we must decide. Let's say that we wish the have the line contain output and not result, then we must manually delete the markers from Git as well as the line. Using our new patch knowledge we can see the what needs to be done below.
+
+``` bash
+--- src/main.c	2019-03-20 11:47:22.947753390 +0100
++++ src/main.c	2019-03-20 11:47:34.777753931 +0100
+@@ -8,11 +8,7 @@
+     char *tmp = NULL;
+     tmp = num_to_words(123);
+     if (tmp)
+-<<<<<<< HEAD
+-        printf("Result: %s", tmp);
+-=======
+         printf("Output: %s", tmp);
+->>>>>>> bar
+     else
+         return 1;
+    return 0;
+```
+
+Once you have resolved the merge conflict you can then add the resolved file and finalize the merge with a normal commit. The commit message should summarize the changes during the merge.
+
+Now that you has seen the basic ideas of how merging works, lets see if you can handle some more complex merge problem yourself. You will find a branch called "unknown_features" which has diverged from this current branch at the previous commit. Your job now is to merge this branch into this current branch and resolve the conflicts presented. The project is a self-contained CMake project inside the `merge_exercise` folder and you will need to apply you C knowledge and CMake knowledge to merge the files correctly to get the project building properly. Once you have the project merged and building, merge the project into `merging` and finally into `master`, if both projects are stable and working as expected. Finally create another tag with the annotation "Exercise 1.2 Submission".
+>>>>>>> unknown_features
 
 If all of that is done then you have completed this tutorial. Please be wary that the use of Git is a requirement in this course and will be part of the project's assessment. Inform yourself on proper use of Git commit messages and make sure that you and your team partner establish a Git workflow that you will use throughout the course. A fun tool to use to make sure your workflow has been used properly is `git log --graph --all` which will give you a graphical representation of your repo's logs.
 
